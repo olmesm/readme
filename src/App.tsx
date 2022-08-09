@@ -35,6 +35,7 @@ const TEMPLATES = [
   "table",
   "todo-list",
   "environment-variables",
+  "resources",
   "contributing",
 ];
 
