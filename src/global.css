@@ -7,6 +7,10 @@ button[role="button"] {
   overflow-y: scroll;
 }
 
+.full-height--textarea {
+  height: calc(100% - (3 * var(--block-spacing-vertical)));
+}
+
 .overflow-hidden {
   overflow: hidden;
 }

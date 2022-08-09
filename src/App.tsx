@@ -107,7 +107,7 @@ const Editor: React.FC<{
   setCopy,
 }) => (
   <textarea
-    style={{ height: "calc(100% - (3 * var(--block-spacing-vertical)))" }}
+    className="full-height--textarea"
     value={copy}
     onChange={(e) => setCopy(e.target.value)}
   />
@@ -232,9 +232,11 @@ export function App() {
 
   if (isLoading) {
     return (
-      <div>
-        <span aria-busy="true">Loading</span>
-      </div>
+      <dialog open>
+        <article>
+          <p aria-busy="true">Loading...</p>
+        </article>
+      </dialog>
     );
   }
 
