@@ -34,6 +34,10 @@ const TEMPLATES = [
   "contributing",
 ];
 
+const BLURB = `<!--
+  Created with https://olmesm.github.io/readme tool.
+-->`;
+
 type State = {
   documents: TemplateObject[];
   templates: Readonly<TemplateObject>[];
@@ -239,7 +243,7 @@ export function App() {
     .join("\n");
 
   const handleCopyMarkdown = () => {
-    copy(markdown);
+    copy([BLURB, markdown].join("\n"));
     setCopied(true);
   };
 
