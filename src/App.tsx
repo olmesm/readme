@@ -15,15 +15,20 @@ import iconTrash from "./icons/trash.svg";
 import iconCopy from "./icons/copy.svg";
 
 const events = ["add", "remove", "edit", "reset", "initialize"] as const;
-const SITE_TITLE = "README";
-
 type Event = typeof events[number];
+
+const SITE_TITLE = "README";
+const TEMPLATES = [
+  "deployment",
+  "introduction",
+  "environment-variables",
+  "contributing",
+];
 
 type State = {
   documents: TemplateObject[];
   templates: Readonly<TemplateObject>[];
 };
-
 const initialState: State = {
   documents: [],
   templates: [],
@@ -46,42 +51,40 @@ const Selector: React.FC<{
     title: Event;
     icon: string;
   }[];
-}> = ({ tooltip, list, primaryAction, additionalActions, activeUid }) => {
-  return (
-    <>
-      {list.map((template) => (
-        <div key={template.uid || template.templateId} className="flex">
-          <button
-            data-tooltip={tooltip}
-            onClick={() => primaryAction(template)}
-            className={
-              activeUid && activeUid === template.uid
-                ? "outline"
-                : "outline secondary"
-            }
-          >
-            {template.templateId}
-          </button>
+}> = ({ tooltip, list, primaryAction, additionalActions, activeUid }) => (
+  <>
+    {list.map((template) => (
+      <div key={template.uid || template.templateId} className="flex">
+        <button
+          data-tooltip={tooltip}
+          onClick={() => primaryAction(template)}
+          className={
+            activeUid && activeUid === template.uid
+              ? "outline"
+              : "outline secondary"
+          }
+        >
+          {template.templateId}
+        </button>
 
-          {additionalActions && (
-            <div className="flex">
-              {additionalActions.map((a) => (
-                <button
-                  role="button"
-                  key={a.title}
-                  data-tooltip={a.title}
-                  onClick={() => a.action(template)}
-                >
-                  <Icon src={a.icon} alt={a.title} />
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      ))}
-    </>
-  );
-};
+        {additionalActions && (
+          <div className="flex">
+            {additionalActions.map((a) => (
+              <button
+                role="button"
+                key={a.title}
+                data-tooltip={a.title}
+                onClick={() => a.action(template)}
+              >
+                <Icon src={a.icon} alt={a.title} />
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
+    ))}
+  </>
+);
 
 const Editor: React.FC<{
   copy?: TemplateObject["originalCopy"];
@@ -149,13 +152,6 @@ function reducer(
   }
 }
 
-const TEMPLATES = [
-  "deployment",
-  "introduction",
-  "environment-variables",
-  "contributing",
-];
-
 const Heading: React.FC<{ title: string; children?: React.ReactNode }> = ({
   children,
   title,
@@ -194,7 +190,7 @@ const CopyModal: React.FC<{
             aria-label="Close"
             className="close outline"
             onClick={() => setCopied(false)}
-          ></button>
+          />
           {SITE_TITLE}
         </header>
         <p>Successfully copied markdown to clipboard</p>

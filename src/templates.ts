@@ -11,9 +11,8 @@ export type TemplateObject = {
   uid?: string;
 };
 
-const fetcher = async (mdFile: string) => {
-  return fetch(`/templates/${mdFile}.md`).then((data) => data.text());
-};
+const fetcher = async (mdFile: string) =>
+  fetch(`/templates/${mdFile}.md`).then((data) => data.text());
 
 export const useLoadTemplates = (
   templateList: string[]
