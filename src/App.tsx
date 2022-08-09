@@ -9,6 +9,7 @@ import {
   updateInArray,
 } from "./utils/immutable-array";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 import copy from "copy-text-to-clipboard";
 import iconRefresh from "./icons/refresh.svg";
@@ -28,8 +29,11 @@ type Event = typeof events[number];
 
 const SITE_TITLE = "README";
 const TEMPLATES = [
-  "deployment",
   "introduction",
+  "development",
+  "deployment",
+  "table",
+  "todo-list",
   "environment-variables",
   "contributing",
 ];
@@ -114,7 +118,7 @@ const Editor: React.FC<{
 );
 
 const View: React.FC<{ markdown: string }> = ({ markdown }) => (
-  <ReactMarkdown>{markdown}</ReactMarkdown>
+  <ReactMarkdown remarkPlugins={[remarkGfm]}>{markdown}</ReactMarkdown>
 );
 
 function reducer(
@@ -234,7 +238,7 @@ export function App() {
     return (
       <dialog open>
         <article>
-          <p aria-busy="true">Loading...</p>
+          <p aria-busy="true">Loading Templates...</p>
         </article>
       </dialog>
     );
