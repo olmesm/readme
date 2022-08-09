@@ -5,7 +5,6 @@ import { isTruthy } from "./utils/isTruthy";
 const VITE_PATH_PREFIX = <"/some-repo-path/" | undefined>(
   import.meta.env.VITE_PATH_PREFIX
 );
-console.log({ VITE_PATH_PREFIX });
 
 export type UnionOfArrayElements<T extends Readonly<{ templateId: string }[]>> =
   T[number]["templateId"];
