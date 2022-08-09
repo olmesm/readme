@@ -1,7 +1,11 @@
 import { useEffect, useState } from "react";
 import { isOccupied } from "./utils/immutable-array";
+import { isTruthy } from "./utils/isTruthy";
 
-const PATH_PREFIX = <"/some-repo-path/" | undefined>import.meta.env.PATH_PREFIX;
+const VITE_PATH_PREFIX = <"/some-repo-path/" | undefined>(
+  import.meta.env.VITE_PATH_PREFIX
+);
+console.log({ VITE_PATH_PREFIX });
 
 export type UnionOfArrayElements<T extends Readonly<{ templateId: string }[]>> =
   T[number]["templateId"];
@@ -14,9 +18,12 @@ export type TemplateObject = {
 };
 
 const fetcher = async (mdFile: string) =>
-  fetch([PATH_PREFIX, `/templates/${mdFile}.md`].filter(Boolean).join("")).then(
-    (data) => data.text()
-  );
+  fetch(
+    [VITE_PATH_PREFIX, `/templates/${mdFile}.md`]
+      .filter(isTruthy)
+      .join("/")
+      .replace(/\/{2,}/g, "/")
+  ).then((data) => data.text());
 
 export const useLoadTemplates = (
   templateList: string[]
