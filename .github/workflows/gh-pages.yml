@@ -18,13 +18,12 @@ jobs:
       - run: npm run test
       - run: npm run build
       - run: |
-          echo "engineering.radically.digital" >> build/CNAME
-          echo "User-agent: *\n  Disallow: /" >> build/robots.txt
+          echo "User-agent: *\n  Disallow: /" >> dist/robots.txt
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: build
+          publish_dir: dist
           force_orphan: true
           user_name: "github-actions[bot]"
           user_email: "github-actions[bot]@users.noreply.github.com"
