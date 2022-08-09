@@ -16,7 +16,7 @@ jobs:
           node-version: 18
       - run: npm ci
       - run: npm run test
-      - run: npm run build
+      - run: PATH_PREFIX="/readme/" npm run build
       - run: |
           echo "User-agent: *\n  Disallow: /" >> dist/robots.txt
       - name: Deploy
