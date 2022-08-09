@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { isOccupied } from "./utils/immutable-array";
 
+const PATH_PREFIX = <"/some-repo-path/" | undefined>import.meta.env.PATH_PREFIX;
+
 export type UnionOfArrayElements<T extends Readonly<{ templateId: string }[]>> =
   T[number]["templateId"];
 
@@ -12,7 +14,9 @@ export type TemplateObject = {
 };
 
 const fetcher = async (mdFile: string) =>
-  fetch(`/templates/${mdFile}.md`).then((data) => data.text());
+  fetch([PATH_PREFIX, `/templates/${mdFile}.md`].filter(Boolean).join("")).then(
+    (data) => data.text()
+  );
 
 export const useLoadTemplates = (
   templateList: string[]
