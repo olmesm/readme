@@ -1,0 +1,25 @@
+button[role="button"] {
+  width: unset;
+}
+
+.full-height {
+  height: calc(100vh - (2 * var(--block-spacing-vertical)));
+  overflow-y: scroll;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.flex {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.unset-max-width {
+  max-width: unset;
+}
+
+.space-between {
+  justify-content: space-between;
+}
