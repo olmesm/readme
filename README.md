@@ -33,3 +33,22 @@ Deploys to github pages when merged to main branch. See the [workflow file](/.gi
 - Backend for SaaS
 - e2e testing
 - [DND Kit to drag and drop](https://dndkit.com)
+- templates
+  - features
+  - Tech Stack
+  - Usage/Examples
+  - Used By
+  - Feedback
+  - installation
+  - Support
+  - testing
+  - workflow
+  - related
+  - Resources => Appendix
+  - Demo
+  - Screenshots
+  - Documentation
+  - FAQ
+  - Troubleshooting
+  - standards/styleguide
+  - License
