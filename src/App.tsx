@@ -16,6 +16,7 @@ import iconRefresh from "./icons/refresh.svg";
 import iconTrash from "./icons/trash.svg";
 import iconCopy from "./icons/copy.svg";
 import arrowBarUp from "./icons/arrow-bar-up.svg";
+import ambulance from "./icons/ambulance.svg";
 
 const events = [
   "add",
@@ -27,7 +28,8 @@ const events = [
 ] as const;
 type Event = typeof events[number];
 
-const SITE_TITLE = "README";
+const SITE_TITLE = "README CREATOR";
+const URL_GITHUB = "https://github.com/olmesm/readme";
 const TEMPLATES = [
   "introduction",
   "development",
@@ -256,6 +258,23 @@ export function App() {
 
   return (
     <main className="container-fluid">
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <strong>{SITE_TITLE}</strong>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <a className="secondary" href={URL_GITHUB}>
+                <Icon src={ambulance} alt="get help" />
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
       <CopyModal copied={copied} setCopied={setCopied} />
 
       <div className="grid">
