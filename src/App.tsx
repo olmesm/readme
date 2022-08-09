@@ -4,17 +4,26 @@ import { uid } from "./utils/uid";
 import "./global.css";
 import {
   removeFromArray,
+  shiftItem,
   uniqueArray,
   updateInArray,
 } from "./utils/immutable-array";
 import ReactMarkdown from "react-markdown";
-import copy from "copy-text-to-clipboard";
 
+import copy from "copy-text-to-clipboard";
 import iconRefresh from "./icons/refresh.svg";
 import iconTrash from "./icons/trash.svg";
 import iconCopy from "./icons/copy.svg";
+import arrowBarUp from "./icons/arrow-bar-up.svg";
 
-const events = ["add", "remove", "edit", "reset", "initialize"] as const;
+const events = [
+  "add",
+  "remove",
+  "edit",
+  "reset",
+  "initialize",
+  "move",
+] as const;
 type Event = typeof events[number];
 
 const SITE_TITLE = "README";
@@ -119,6 +128,13 @@ function reducer(
     case "initialize": {
       return Object.assign({}, state, {
         templates: (action as { templateList: TemplateObject[] }).templateList,
+      });
+    }
+    case "move": {
+      const eventPayloadIndex = getEventPayloadIndexFromState();
+
+      return Object.assign({}, state, {
+        documents: shiftItem(state.documents, eventPayloadIndex, -1),
       });
     }
     case "edit": {
@@ -239,6 +255,16 @@ export function App() {
             list={state.documents}
             tooltip="Edit"
             additionalActions={[
+              {
+                title: "move",
+                action: (template) => {
+                  dispatch({
+                    type: "move",
+                    template,
+                  });
+                },
+                icon: arrowBarUp,
+              },
               {
                 title: "reset",
                 action: (template) =>
