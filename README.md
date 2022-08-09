@@ -26,7 +26,7 @@ npm run test
 
 ## Deployment
 
-TBC
+Deploys to github pages when merged to main branch. See the [workflow file](/.github/workflows/gh-pages.yml)
 
 ## TODO
 
