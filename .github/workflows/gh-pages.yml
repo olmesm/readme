@@ -16,16 +16,11 @@ jobs:
           node-version: 18
       - run: npm ci
       - run: npm run test
-      - run: VITE_PATH_PREFIX="/readme/" npm run build
+      - run: npm run build
       - run: |
           echo "User-agent: *
             Disallow: /" >> dist/robots.txt
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: dist
-          force_orphan: true
-          user_name: "github-actions[bot]"
-          user_email: "github-actions[bot]@users.noreply.github.com"
-          commit_message: "Deployed"
+      - run: echo "readme.radically.digital" >> dist/CNAME
+      - run: npx surge dist
+        env:
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}

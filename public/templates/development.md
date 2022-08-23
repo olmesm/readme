@@ -16,7 +16,7 @@ npm install
 npm run dev
 
 ####################
-$ Other scripts of interest
+# Other scripts of interest
 ####################
 
 # Run formatter

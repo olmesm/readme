@@ -344,6 +344,14 @@ export function App() {
           <View markdown={markdown} />
         </Segment>
       </div>
+      <div className="flex justify-center">
+        <p>
+          Forked with permission from{" "}
+          <a href="https://github.com/olmesm/readme">
+            https://github.com/olmesm/readme
+          </a>
+        </p>
+      </div>
     </main>
   );
 }

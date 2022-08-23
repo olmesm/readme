@@ -30,9 +30,8 @@ Deploys to github pages when merged to main branch. See the [workflow file](/.gi
 
 ## TODO
 
-- Backend for SaaS
-- e2e testing
 - [DND Kit to drag and drop](https://dndkit.com)
+- e2e testing
 - templates
   - features
   - Tech Stack
@@ -52,3 +51,5 @@ Deploys to github pages when merged to main branch. See the [workflow file](/.gi
   - Troubleshooting
   - standards/styleguide
   - License
+
+Forked with permission from [https://github.com/olmesm/readme](https://github.com/olmesm/readme)
