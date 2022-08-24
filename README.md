@@ -30,6 +30,7 @@ Deploys to github pages when merged to main branch. See the [workflow file](/.gi
 
 ## TODO
 
+- template url
 - [DND Kit to drag and drop](https://dndkit.com)
 - e2e testing
 - templates
