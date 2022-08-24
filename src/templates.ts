@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { t } from "vitest/dist/index-4a906fa4";
 import { isOccupied } from "./utils/immutable-array";
 import { isTruthy } from "./utils/isTruthy";
 
@@ -18,12 +17,9 @@ export type TemplateObject = {
 };
 
 const fetcher = async (path: string) =>
-  fetch(
-    [VITE_PATH_PREFIX, `${path}`]
-      .filter(isTruthy)
-      .join("/")
-      .replace(/\/{2,}/g, "/")
-  ).then((data) => data.text());
+  fetch([VITE_PATH_PREFIX, `${path}`].filter(isTruthy).join("/")).then((data) =>
+    data.text()
+  );
 
 export const useLoadTemplates = (url: string): [boolean, TemplateObject[]] => {
   const [templates, setTemplates] = useState<TemplateObject[]>([]);
