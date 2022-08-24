@@ -20,7 +20,7 @@ jobs:
       - run: |
           echo "User-agent: *
             Disallow: /" >> dist/robots.txt
-      - run: echo "readme.radically.digital" >> dist/CNAME
+      - run: echo "readme.ohmybuck.com" >> dist/CNAME
       - run: npx surge dist
         env:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}

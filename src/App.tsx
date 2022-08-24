@@ -30,16 +30,8 @@ type Event = typeof events[number];
 
 const SITE_TITLE = "README CREATOR";
 const URL_GITHUB = "https://github.com/olmesm/readme";
-const TEMPLATES = [
-  "introduction",
-  "development",
-  "deployment",
-  "table",
-  "todo-list",
-  "environment-variables",
-  "resources",
-  "contributing",
-];
+const TEMPLATE_URL =
+  "https://raw.githubusercontent.com/olmesm/readme/main/public/templates/";
 
 const BLURB = `<!--
   Created with https://olmesm.github.io/readme tool.
@@ -231,7 +223,11 @@ export function App() {
   const [editorUid, setEditorUid] = useState<string>();
   const [copied, setCopied] = useState<boolean>(false);
   const loadedDoc = state.documents.find((d) => d.uid === editorUid);
-  const [isLoading, templates] = useLoadTemplates(TEMPLATES);
+
+  const params = new URL(window.location as unknown as URL).searchParams;
+  const templateUrl = params.get("template-url") || TEMPLATE_URL;
+
+  const [isLoading, templates] = useLoadTemplates(decodeURI(templateUrl));
 
   useEffect(() => {
     dispatch({ type: "initialize", templateList: templates });
@@ -346,10 +342,7 @@ export function App() {
       </div>
       <div className="flex justify-center">
         <p>
-          Forked with permission from{" "}
-          <a href="https://github.com/olmesm/readme">
-            https://github.com/olmesm/readme
-          </a>
+          Forked with permission from <a href={URL_GITHUB}>{URL_GITHUB}</a>
         </p>
       </div>
     </main>
