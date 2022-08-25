@@ -339,9 +339,10 @@ export function App() {
           <View markdown={markdown} />
         </Segment>
       </div>
+
       <div className="flex justify-center">
         <p>
-          Forked with permission from <a href={URL_GITHUB}>{URL_GITHUB}</a>
+          Code available at <a href={URL_GITHUB}>{URL_GITHUB}</a>
         </p>
       </div>
     </main>
