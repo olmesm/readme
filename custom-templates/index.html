@@ -14,19 +14,27 @@
     <main className="container-fluid">
       <dialog open>
         <article>
-          <p aria-busy="true">Redirecting...</p>
+          <p aria-busy="true">Redirecting<span id="redirect-url">...</span></p>
         </article>
       </dialog>
     </main>
+
     <script>
       const REDIRECT_TIMEOUT_MS = 1000;
       const templateUrl = encodeURI(window.location);
+      const redirectUrl =
+        "https://readme.ohmybuck.com?template-url=" +
+        templateUrl +
+        "/templates/";
+
+      const redirectUrlElement = document.getElementById("redirect-url");
+
+      if (redirectUrlElement.innerText === "...") {
+        redirectUrlElement.innerHTML = ` to <a href="${redirectUrl}">readme.ohmybuck.com</a>`;
+      }
 
       setTimeout(() => {
-        window.location =
-          "https://readme.ohmybuck.com?template-url=" +
-          templateUrl +
-          "/templates/";
+        window.location = redirectUrl;
       }, REDIRECT_TIMEOUT_MS);
     </script>
   </body>
