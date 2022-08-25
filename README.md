@@ -2,7 +2,7 @@
 
 Readme generator. Features customizable templates that are fetched on load.
 
-## Custom Templatea
+## Custom Templates
 
 Download and serve the files from https://readme.ohmybuck.com/custom-templates.zip
 
