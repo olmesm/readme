@@ -30,11 +30,10 @@ type Event = typeof events[number];
 
 const SITE_TITLE = "README CREATOR";
 const URL_GITHUB = "https://github.com/olmesm/readme";
-const TEMPLATE_URL =
-  "https://raw.githubusercontent.com/olmesm/readme/main/public/templates/";
+const TEMPLATE_URL = "/templates/";
 
 const BLURB = `<!--
-  Created with https://olmesm.github.io/readme tool.
+  Created with ${window.location || URL_GITHUB} tool.
 -->`;
 
 type State = {
