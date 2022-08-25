@@ -1,4 +1,4 @@
-name: github pages
+name: static-deploy
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  deploy:
+  static-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -20,7 +20,6 @@ jobs:
       - run: |
           echo "User-agent: *
             Disallow: /" >> dist/robots.txt
-      - run: echo "readme.ohmybuck.com" >> dist/CNAME
       - run: npx surge dist
         env:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
