@@ -2,7 +2,9 @@
 
 Readme generator. Features customizable templates that are fetched on load.
 
-- [Template Directory](./public/templates)
+## Custom Templatea
+
+Download and serve the files from https://readme.ohmybuck.com/custom-templates.zip
 
 ## Uses
 
@@ -30,7 +32,6 @@ Deploys to github pages when merged to main branch. See the [workflow file](/.gi
 
 ## TODO
 
-- template url
 - [DND Kit to drag and drop](https://dndkit.com)
 - e2e testing
 - templates
@@ -51,6 +52,3 @@ Deploys to github pages when merged to main branch. See the [workflow file](/.gi
   - FAQ
   - Troubleshooting
   - standards/styleguide
-  - License
-
-Forked with permission from [https://github.com/olmesm/readme](https://github.com/olmesm/readme)

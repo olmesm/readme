@@ -20,6 +20,7 @@ jobs:
       - run: |
           echo "User-agent: *
             Disallow: /" >> dist/robots.txt
+      - run: sh scripts/bootstrap-custom-template-site.sh
       - run: npx surge dist
         env:
           SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}

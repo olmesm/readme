@@ -1,6 +1,7 @@
 [
   "introduction.md",
   "development.md",
+  "license.md",
   "environment-variables.md",
   "deployment.md",
   "resources.md",
