@@ -14,5 +14,9 @@ cp public/favicon.ico $DIRECTORY_TMP
 echo ">> Copying templates"
 cp -r public/templates $DIRECTORY_TMP
 
+TMP_PATH=$(pwd)
+
 echo ">> Zipping to $ARCHIVE_FILE"
-zip $ARCHIVE_FILE $DIRECTORY_TMP
+cd $DIRECTORY_TMP
+zip -rX $TMP_PATH/$ARCHIVE_FILE *
+cd $TMP_PATH
