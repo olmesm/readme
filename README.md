@@ -4,7 +4,14 @@ Readme generator. Features customizable templates that are fetched on load.
 
 ## Custom Templates
 
-Download and serve the files from https://readme.ohmybuck.com/custom-templates.zip
+Download and serve the files from [custom-templates.zip](https://readme.ohmybuck.com/custom-templates.zip)
+
+```bash
+# using curl
+curl -O https://readme.ohmybuck.com/custom-templates.zip
+# or using wget
+wget https://readme.ohmybuck.com/custom-templates.zip
+```
 
 ## Uses
 
