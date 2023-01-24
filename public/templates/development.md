@@ -7,7 +7,7 @@ Uses:
 
 ```bash
 # Install asdf dependencies
-asdf install node
+source <(curl -sL https://raw.githubusercontent.com/olmesm/odd-scripts/main/shell/asdf-install.sh)
 
 # Install dependencies
 npm install
